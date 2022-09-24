@@ -1,0 +1,52 @@
+.header {
+    &__list {
+        display: none;
+        list-style: none;
+        overflow: visible;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__list--show {
+        display: block;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        border-top: 1px solid #b7b7b7;
+    }
+    &__item-link {
+        height: 20px;
+        display: flex;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: left;
+        font-weight: 600;
+        padding: 10px 12px;
+        background: #fff;
+    }
+}
+
+@include desktop {
+    .header {
+        &__list {
+            display: flex;
+            align-items: center;
+        }
+
+        &__list--show {
+            position: relative;
+            top: 0;
+            left: auto;
+            width: auto;
+            border-top: 0;
+        }
+        &__item-link {
+            height: 80px;
+            justify-content: center;
+            padding: 5px 12px;
+        }
+    }
+}

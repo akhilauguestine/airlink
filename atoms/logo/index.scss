@@ -1,0 +1,24 @@
+.header{
+    &__logo {
+        display: flex;
+        position: relative;
+        align-items: center;
+        z-index: 5;
+        left: 0;
+        flex-shrink: 0;
+        color: #fff;
+
+        &-link {
+            display: flex;
+        }
+
+        &-img {
+            width: 120px;
+        }
+    }
+}
+@include desktop {
+    .header__logo-img {
+        width: 190px;
+    }
+}

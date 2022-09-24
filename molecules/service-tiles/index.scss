@@ -1,0 +1,123 @@
+.our-services {
+    &__tiles {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__tiles-item {
+        margin: 10px;
+        width: 100%;
+        display: flex;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    &__tiles-img {
+        object-fit: cover;
+        width: 100%;
+        height: 200px;
+        display: block;
+
+        & img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__tiles-content {
+        display: flex;
+        padding: 12px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        background-color: #fff;
+    }
+}
+
+@include desktop {
+    .our-services {
+        &__tiles {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        &__tiles-content {
+            display: none;
+        }
+
+        &__tiles-item {
+            margin: 9px;
+            width: calc(25% - 13px);
+            display: flex;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            &:nth-child(1){
+                margin-left: 0;
+            }
+            &:nth-child(3){
+                margin-right: 0;
+            }
+            &:nth-child(4){
+                margin-left: 0;
+            }
+            &:nth-child(6){
+                margin-right: 0;
+            }
+            
+            &.active{
+                width: calc(50% - 10px);
+                animation: maintileAnimate 1s;
+            }
+            &.active .our-services__tiles-img {
+                width: calc(50% - 10px);
+                
+            }
+
+            &.active .our-services__tiles-content {
+                width: calc(50% + 10px);
+                display: flex;
+                padding: 20px;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                animation: tileAnimate 1s;
+            }
+        }
+
+        &__tiles-img {
+            object-fit: cover;
+            width: calc(100%);
+            height: 100%;
+            display: block;
+
+            & img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+@keyframes tileAnimate {
+    0% {
+      transform: translateX(70px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+}
+@keyframes maintileAnimate {
+    0% {
+        transform: translateX(200px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+@keyframes maintileAnimaterev {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(200px);
+    }
+}

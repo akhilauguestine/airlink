@@ -1,0 +1,66 @@
+.form{
+    
+    &__section{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    & p.desc{
+        margin-top: 10px;
+        font-size: 14px;
+        font-weight: 400;
+        color: #666666;
+    }
+    &__input-wrap{
+        width: calc(50% - 10px);
+        margin: 8px 10px 8px 0;
+        position: relative;
+        &:nth-child(2n){
+            margin-right: 0;
+            margin-left: 10px;
+        }
+        &:nth-child(8){
+            margin-left: 0;
+        }
+        &.radio{
+            display: flex;
+            align-items: center;
+        }
+        &.full-width{
+            width: 100%;
+        }
+        & textarea{
+            min-height: 120px;
+        }
+        
+    }
+    &__input{
+        border: 1px solid #e2e2e2;
+        color: #6d6d6d;
+        padding: 8px 42px 8px 16px;
+        border-radius: 0px;
+        width: 100%;
+        
+    }
+    &__icon{
+        width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 18px;
+    right: 10px;
+    transform: translate(0%, -50%);
+    }
+    &__radio{
+        position: relative;
+        cursor: pointer;
+        color: #6d6d6d;
+        margin-right: 10px;
+    }
+}
+
+@include desktop{
+    .form{
+        &__radio{
+            margin-right: 24px;
+        }
+    }
+}

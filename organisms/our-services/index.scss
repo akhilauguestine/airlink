@@ -1,0 +1,17 @@
+.our-services {
+    &__wrapper {
+        padding: 40px 0;
+        width: 100%;
+    }
+
+    &__header {
+        max-width: 800px;
+        width: 100%;
+        margin: 0 auto 32px;
+    }
+
+    &__bottom {
+        text-align: center;
+        margin-top: 24px;
+    }
+}
