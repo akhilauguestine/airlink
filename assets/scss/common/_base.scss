@@ -1,8 +1,8 @@
 html,
 body {
     @include EticaW02;
-    background-color: #fff;
-    color: #000;
+    background-color: $color-white;
+    color: $color-black;
     font-weight: 200;
     line-height: 1.3;
     font-size: 100%;
@@ -30,7 +30,7 @@ p{
 }
 
 a {
-    color: #000;
+    color: $color-black;
     font-size: 12px;
     font-weight: 600;
     text-decoration: none;

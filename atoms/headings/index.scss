@@ -2,14 +2,14 @@
     &__desc {
         font-size: 14px;
         font-weight: 300;
-        color: #ffffff;
+        color: $color-white;
         padding-bottom: 12px;
     }
 
     &__title {
         font-size: 24px;
         font-weight: 600;
-        color: #ffffff;
+        color: $color-white;
     }
 }
 
@@ -19,20 +19,19 @@ h2 {
         font-weight: 600;
         font-size: 34px;
         margin-bottom: 16px;
-        color: #191937;
         text-align: center;
     }
 }
 
 p {
     &.desc {
-        color: #9fa1a7;
+        color: $color-grey-2;
         text-align: center;
     }
     
     &.our-services__sub-desc {
         text-align: left;
-        color: #4b597b;
+        color: $color-blue-3;
         font-size: 14px;
         margin-bottom: 24px;
     }
@@ -42,42 +41,50 @@ h3 {
     font-weight: 600;
 
     &.our-services__sub-title {
-        color: #000098;
+        color: $color-blue-2;
         font-size: 28px;
         margin-bottom: 24px;
     }
 }
+.our-services{
+    &__title{
+        color: $color-black-3;
+    }
+}
 .news-events{
+    &__title{
+        color: $color-black-2;
+    }
     &__date{
         font-size: 14px;
-    color: #9fa1a7;
+    color: $color-grey-6;
     margin-bottom: 16px;
     }
     &__sub-title{
         font-weight: 600;
-    color: #161616;
+    color: $color-black-2;
     margin-bottom: 16px;
     }
     &__sub-desc{
-        color: #666666;
+        color: $color-grey-4;
     }
 }
 .form{
     &__title{
     font-size: 28px;
-    color: #10385b;
+    color: $color-blue;
     font-weight: 600;
     text-align: left;
 }
 &__sub-title{
     margin-bottom: 20px;
     font-size: 28px;
-    color: #10385b;
+    color: $color-blue;
     font-weight: 600;
 }
 &__sub-desc{
     margin-bottom: 16px;
-    color: #7f7f7f;
+    color: $color-grey-8;
     font-size: 16px;
 }
 }

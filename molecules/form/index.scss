@@ -1,65 +1,173 @@
-.form{
-    
-    &__section{
+.form {
+
+    &__section {
         display: flex;
         flex-wrap: wrap;
     }
-    & p.desc{
+
+    & p.desc {
         margin-top: 10px;
         font-size: 14px;
         font-weight: 400;
-        color: #666666;
+        color: $color-grey-4;
     }
-    &__input-wrap{
-        width: calc(50% - 10px);
+
+    &__input-wrap {
+        width: calc(100% - 10px);
         margin: 8px 10px 8px 0;
         position: relative;
-        &:nth-child(2n){
-            margin-right: 0;
-            margin-left: 10px;
-        }
-        &:nth-child(8){
-            margin-left: 0;
-        }
-        &.radio{
+
+        &.radio {
             display: flex;
             align-items: center;
+
+            & label {
+                margin-right: 10px;
+                padding-left: 8px;
+                position: relative;
+                cursor: pointer;
+                color: $color-grey-4;
+            }
         }
-        &.full-width{
+
+        &.full-width {
             width: 100%;
         }
-        & textarea{
+
+        & textarea {
             min-height: 120px;
         }
-        
+
     }
-    &__input{
+
+    &__input {
         border: 1px solid #e2e2e2;
         color: #6d6d6d;
         padding: 8px 42px 8px 16px;
         border-radius: 0px;
         width: 100%;
-        
+
+        &.phone {
+            width: calc(100% - 75px);
+            float: left;
+        }
+
+        &.country+.form__icon {
+            right: 20px;
+        }
     }
-    &__icon{
+
+    &__error {
+        display: none;
+        color: $color-red;
+        font-size: 14px;
+        margin-top: 2px;
+    }
+
+    &__input.error .form__error {
+        display: block;
+    }
+
+    &__dropdown {
+        border-right: none;
+        float: left;
+        width: 75px;
+        min-width: 75px;
+        border: 1px solid #e2e2e2;
+        background-color: transparent;
+        padding: 8px;
+        color: #666666;
+        border: 1px solid #e2e2e2;
+        appearance: none;
+        position: relative;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='sgp-header__drop-menu-icon' viewBox='0 0 10 5.938'%3E%3Cpath d='M4.75-3.125H4.719A.457.457,0,0,0,5-3.031a.457.457,0,0,0,.281-.094L9.906-7.719A.435.435,0,0,0,10-7.984a.435.435,0,0,0-.094-.266l-.625-.625A.457.457,0,0,0,9-8.969a.338.338,0,0,0-.25.094L5-5.156,1.25-8.875A.338.338,0,0,0,1-8.969a.457.457,0,0,0-.281.094L.094-8.25A.435.435,0,0,0,0-7.984a.373.373,0,0,0,.125.266Z' transform='translate(0 8.969)' fill='%23555'%3E%3C/path%3E%3C/svg%3E");
+        background-size: 10px 5px;
+        background-repeat: no-repeat;
+        background-position-x: calc(100% - 8px);
+        background-position-y: 50%;
+    }
+
+    &__icon {
         width: 22px;
-    height: 22px;
-    position: absolute;
-    top: 18px;
-    right: 10px;
-    transform: translate(0%, -50%);
+        height: 22px;
+        position: absolute;
+        top: 16px;
+        right: 10px;
+        transform: translate(0%, -50%);
     }
-    &__radio{
+
+    &__radio {
         position: relative;
         cursor: pointer;
         color: #6d6d6d;
         margin-right: 10px;
     }
+
+    &__modal {
+        display: none;
+        position: fixed;
+        left: 0%;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        display: none;
+        z-index: 99999;
+
+        &.active {
+            display: flex;
+        }
+
+    }
+
+    &__modal-wrap {
+        background-color: $color-white;
+        border-radius: 10px;
+        padding: 16px;
+        min-width: 400px;
+        min-height: 100px;
+        position: relative;
+        padding: 20px;
+    }
+
+    &__modal-close {
+        background-color: $color-white;
+        border: 0;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+
+        & img {
+            width: 20px;
+            height: 20px;
+        }
+    }
 }
 
-@include desktop{
-    .form{
-        &__radio{
+@include tablet {
+    .form {
+        &__input-wrap {
+            width: calc(50% - 10px);
+
+            &:nth-child(2n) {
+                margin-right: 0;
+                margin-left: 10px;
+            }
+
+            &:nth-child(8) {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+@include desktop {
+    .form {
+        &__radio {
             margin-right: 24px;
         }
     }

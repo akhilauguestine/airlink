@@ -228,26 +228,40 @@
                             <div class="form__input-wrap">
                                 <input type="text" id="mail" class="form__input" placeholder="Email">
                                 <img src="./assets/images/mail.svg" alt="" class="form__icon">
+                                <label class="form__error email">*mail id must have "@beinex.com"</label>
                             </div>
                             <div class="form__input-wrap">
-                                <input type="text" id="phone" class="form__input" placeholder="Phone Number">
+                                <select id="countryCode" class="form__dropdown">
+                                    <option value="">Code</option>
+                                    <option value="91">+91</option>
+                                    <option value="65">+65</option>
+                                </select>
+                                <input type="text" id="phone" class="form__input phone" placeholder="Phone Number" maxlength="10">
                                 <img src="./assets/images/phone.svg" alt="" class="form__icon">
+                                <label class="form__error phone">*Enter your 10 digit number</label>
                             </div>
                             <div class="form__input-wrap">
-                                <input type="text" id="country" class="form__input" placeholder="Select Country">
+                                <select id="country" class="form__input country">
+                                    <option value="">Select Country</option>
+                                    <option value="India">India</option>
+                                    <option value="Canada">UAE</option>
+                                </select>
+                                <!-- <input type="text" id="country" class="form__input" placeholder="Select Country"> -->
                                 <img src="./assets/images/country.svg" alt="" class="form__icon">
                             </div>
                             <div class="form__input-wrap radio">
-                                <label class="form__radio">
-                                    <input type="radio" name="radio">Male
-                                </label>
-                                <label class="form__radio">
-                                    <input type="radio" name="radio">Female
-                                </label>
+                                <input type="radio" name="radio_gender" value="male" id="male"/>
+                                <label for="male">Male</label>
+                                
+                                <br>
+                                <input type="radio" name="radio_gender" value="female" id="female"/>
+                                <label for="female">Female</label>
+                                
+                                <br>
                             </div>
                             <p class="desc">Description</p>
                             <div class="form__input-wrap full-width">
-                                <textarea class="form__input"></textarea>
+                                <textarea id="desc" class="form__input"></textarea>
                             </div>
                             <button type="submit" id="formsubmit" class="form__submit" disabled>Submit
                                 <span><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
@@ -259,6 +273,11 @@
                                   </svg></span>
                             </button>
                         </form>
+                        <div class="form__modal" id="modal">
+                            <div class="form__modal-wrap">
+                                <div id="result"></div>
+                            <button id="modal-close" class="form__modal-close"><img src="./assets/images/close.svg"></button>
+                        </div> </div>
                     </div>
                     <div class="form__segment">
                         <div class="form__segment-wrap">

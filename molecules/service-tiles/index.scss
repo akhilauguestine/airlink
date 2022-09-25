@@ -30,7 +30,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        background-color: #fff;
+        background-color: $color-white;
     }
 }
 
@@ -46,7 +46,7 @@
 
         &__tiles-item {
             margin: 9px;
-            width: calc(25% - 13px);
+            width: calc(25% - 16px);
             display: flex;
             border: 1px solid rgba(0, 0, 0, 0.1);
             &:nth-child(1){
@@ -72,7 +72,7 @@
             }
 
             &.active .our-services__tiles-content {
-                width: calc(50% + 10px);
+                width: calc(50% - 25px);
                 display: flex;
                 padding: 20px;
                 flex-direction: column;
