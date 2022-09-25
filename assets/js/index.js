@@ -15,6 +15,7 @@ $(document).ready(function () {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
+    adaptiveHeight: true,
     // dots: false, Boolean
     arrows: false,
     responsive: [
@@ -69,12 +70,12 @@ $(document).ready(function () {
 
   let dropdown_country = $('#country');
   dropdown_country.empty();
-  dropdown_country.append('<option selected="true" disabled>Select Country</option>');
+  dropdown_country.append('<option value="0" selected="true" disabled>Select Country</option>');
   dropdown_country.prop('selectedIndex', 0);
 
   let dropdown_phone = $('#countryCode');
   dropdown_phone.empty();
-  dropdown_phone.append('<option selected="true" disabled>Code</option>');
+  dropdown_phone.append('<option value="0" selected="true" disabled>Code</option>');
   dropdown_phone.prop('selectedIndex', 0);
 
   const url = 'https://api.npoint.io/64dd14e16451a30ef487';
@@ -130,7 +131,7 @@ countryCode.addEventListener("change", checkPhoneValid);
 
 function checkPhoneValid() {
   let phPattern = /[1-9]{1}[0-9]{9}/;
-  if (!(phPattern.test(phoneNo.value)) || (phoneNo.value == "") || countryCode.value == "") {
+  if (!(phPattern.test(phoneNo.value)) || (phoneNo.value == "") || countryCode.value == "0") {
     phoneError.style.display = "block";
     isPhoneValid = false;
   }
@@ -166,20 +167,22 @@ function checkSubmitStatus() {
 submitBtn.addEventListener("click", function (e) {
   e.preventDefault();
 
-  var gender_value = 'Nothing selected',
+  var gender_value = "0",
     selected = document.querySelector('input[name="radio_gender"]:checked'),
     selection = document.querySelector('#selection');
   if (selected) {
     gender_value = document.querySelector('label[for="' + selected.id + '"]').innerHTML;
   }
+  var ccode = "0"
+  ccode = countryCode.options[countryCode.selectedIndex].text;
   modal.classList.add("active");
   document.querySelector("body").classList.add("overflow");
   let result = name.value ? `Name : ${name.value} <br>` : "";
   result += job.value ? `Job : ${job.value} <br>` : "";
   result += emailId.value ? `Email : ${emailId.value} <br>` : "";
-  result += phoneNo.value ? `Phone : ${countryCode.options[countryCode.selectedIndex].text}  ${phoneNo.value} <br>` : "";
-  result += country.value ? `Country : ${country.options[country.selectedIndex].text} <br>` : "";
-  result += gender_value ? `Gender : ${gender_value} <br>` : "";
+  result += phoneNo.value ? `Phone : ${ccode != "0" ? ccode : ''}  ${phoneNo.value} <br>` : "";
+  result += country.value != "0" ? `Country : ${country.options[country.selectedIndex].text} <br>` : "";
+  result += gender_value != "0" ? `Gender : ${gender_value} <br>` : "";
   result += desc.value ? `Comments : ${desc.value} <br>` : "";
   document.getElementById("result").innerHTML = result;
 
